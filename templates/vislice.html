@@ -1,0 +1,26 @@
+{% extends 'shema.html' %}
+{% block podnaslov %}Vislice{% endblock %}
+{% block vsebina %}
+    <div class="center">
+        <img src="/static/vislice_0.png" />
+    </div>
+    <p>
+     {% for znak in session ["beseda"] %}
+        {%if znak in session ["ugibal"] %}
+            {{znak}}
+        {% else %}
+            __
+         {% endif %}
+    {% endfor %}   
+    </p>
+
+    <p>
+        {% for i in vse_crke %}
+            <a href= "/vislice/{{i}}">
+            {{i}}
+        {% endfor %}
+
+    </p>
+
+{% endblock %}
+
